@@ -7,6 +7,8 @@
 A [Test Kitchen](https://kitchen.ci/) driver that runs your test instances on
 [NodeRings](https://noderings.com) virtual machines.
 
+New to it? The step-by-step guide [How to use Chef on a NodeRings VPS: cookbook, knife and Test Kitchen](https://noderings.com/blog/chef-vps) walks through a first run.
+
 For each instance the driver orders the cheapest matching offer from the NodeRings
 marketplace, installs a temporary SSH key, waits until SSH answers, and on
 `kitchen destroy` deletes both the server and the key. Hourly (usage) plans stop
