@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file. The format foll
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.2.0](https://github.com/noderings/kitchen-noderings/compare/v0.1.0...v0.2.0) (2026-11-26)
+
+
+### Features
+
+* choose the provider of Test Kitchen servers ([#5](https://github.com/noderings/kitchen-noderings/issues/5)) ([dfa4286](https://github.com/noderings/kitchen-noderings/commit/dfa42866674cb2ddad80ee8930c66ca949bdbc73))
+
 ## [Unreleased]
 
 ## [0.1.0] - 2026-11-25
