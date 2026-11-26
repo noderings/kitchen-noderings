@@ -4,7 +4,7 @@ require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 
 desc "Run the unit tests"
-RSpec::Core::RakeTask.new(:test)
+RSpec::Core::RakeTask.new(:spec)
 
 begin
   require "cookstyle/chefstyle"
@@ -14,4 +14,4 @@ rescue LoadError
   puts "cookstyle is not installed. Run bundle install first."
 end
 
-task default: %i{test style}
+task default: %i{spec style}
