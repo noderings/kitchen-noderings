@@ -17,3 +17,16 @@ export `NODERINGS_TOKEN`, and run `kitchen test` in a cookbook. This orders real
 billed servers.
 
 Please report security problems privately as described in [SECURITY.md](SECURITY.md).
+
+## Releases
+
+Push a `vX.Y.Z` tag that matches `Kitchen::Driver::NODERINGS_VERSION` (or merge
+the release-please pull request once that workflow is in place). The tag starts
+`.github/workflows/release.yml`, which publishes the gem to
+[RubyGems.org](https://rubygems.org/gems/kitchen-noderings) with trusted
+publishing and then publishes the GitHub release.
+
+The first push of a new gem must pass the RubyGems.org account ID (`owner: "256963"`)
+when exchanging the OIDC token, as already set in `release.yml`. To retry a
+release, open Actions, Release, *Run workflow*, and pick the tag under
+*Use workflow from*.

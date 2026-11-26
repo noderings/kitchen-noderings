@@ -10,19 +10,20 @@ Gem::Specification.new do |spec|
   spec.summary = "A Test Kitchen driver for NodeRings virtual machines"
   spec.description = "Runs Test Kitchen instances on NodeRings marketplace virtual machines: orders the " \
                      "cheapest matching offer, waits for SSH, and deletes the server and its temporary key afterwards."
-  spec.homepage = "https://github.com/noderings/kitchen-noderings"
+  spec.homepage = "https://noderings.com"
   spec.license = "Apache-2.0"
 
   spec.files = %w{LICENSE README.md CHANGELOG.md} + Dir.glob("lib/**/*.rb")
   spec.require_paths = ["lib"]
   spec.required_ruby_version = ">= 3.1"
 
+  source_code = "https://github.com/noderings/kitchen-noderings"
   spec.metadata = {
-    "bug_tracker_uri" => "#{spec.homepage}/issues",
-    "changelog_uri" => "#{spec.homepage}/blob/main/CHANGELOG.md",
-    "documentation_uri" => "#{spec.homepage}#readme",
+    "bug_tracker_uri" => "#{source_code}/issues",
+    "changelog_uri" => "#{source_code}/blob/main/CHANGELOG.md",
+    "documentation_uri" => "#{source_code}#readme",
     "homepage_uri" => spec.homepage,
-    "source_code_uri" => spec.homepage,
+    "source_code_uri" => source_code,
     "rubygems_mfa_required" => "true",
   }
 
