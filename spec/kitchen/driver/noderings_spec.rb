@@ -105,6 +105,35 @@ RSpec.describe Kitchen::Driver::Noderings do
       expect(@fake.calls).to be_empty
     end
 
+    context "with hosting_provider" do
+      [FakeNodeRings::ACME_ID, "acme-hosting", "Acme Hosting", "  acme HOSTING "].each do |provider|
+        it "orders from the provider given as #{provider.inspect}" do
+          config[:hosting_provider] = provider
+          driver.create(state)
+          expect(@fake.created_vm_bodies.last).to include("planId" => FakeNodeRings::ACME_PLAN_ID,
+            "regionId" => FakeNodeRings::ACME_REGION_ID)
+        end
+      end
+
+      it "orders the cheapest offer without one" do
+        driver.create(state)
+        expect(@fake.created_vm_bodies.last["planId"]).to eq FakeNodeRings::PLAN_ID
+      end
+
+      it "fails for an unknown provider" do
+        config[:hosting_provider] = "Nobody Hosting"
+        expect { driver.create(state) }.to raise_error(Kitchen::ActionFailed, /from provider Nobody Hosting/)
+        expect(@fake.created_vm_bodies).to be_empty
+      end
+
+      it "refuses a provider name two providers share" do
+        @fake.extra_providers << FakeNodeRings::ACME_OFFER.merge("organizationId" => "66666666-6666-6666-6666-666666666666")
+        config[:hosting_provider] = "acme hosting"
+        expect { driver.create(state) }.to raise_error(Kitchen::ActionFailed, /more than one provider is named acme hosting/)
+        expect(@fake.created_vm_bodies).to be_empty
+      end
+    end
+
     it "explains a missing offer" do
       config[:city] = "Nowhere"
       expect { driver.create(state) }.to raise_error(Kitchen::ActionFailed, /No offer for plan code SC-GC-1C-1G-20 in Nowhere/)

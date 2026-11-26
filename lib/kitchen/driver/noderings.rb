@@ -63,6 +63,7 @@ module Kitchen
       default_config :port, 22
       default_config :billing_type, "usage"
       default_config :sort, "price"
+      default_config :hosting_provider, nil
       default_config :provider_id, nil
       default_config :plan, nil
       default_config :country, nil
@@ -256,7 +257,8 @@ module Kitchen
 
         plan_id, region_id, offer = api("finding an offer") do
           compute.choose_offer(client, config[:plan], config[:country], config[:city],
-            billing_type: config[:billing_type], provider_id: config[:provider_id], sort: config[:sort])
+            billing_type: config[:billing_type], provider_id: config[:provider_id], sort: config[:sort],
+            provider: config[:hosting_provider])
         end
         [plan_id, region_id, "#{config[:plan]} from #{offer["provider_name"]} in #{config[:city]}, #{config[:country]}"]
       end

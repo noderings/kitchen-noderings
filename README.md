@@ -76,7 +76,8 @@ To see which plans are sold where, use the NodeRings console marketplace, or
 | `city` | none | City of the offer, such as `Ashburn`. |
 | `billing_type` | `usage` | `usage` (hourly), `subscription` (monthly) or `free`. |
 | `sort` | `price` | Order the cheapest matching offer, or the best rated with `rating`. |
-| `provider_id` | none | Only consider offers from this provider. |
+| `hosting_provider` | none | Only consider offers from this provider: its ID, storefront slug (such as `acme-hosting`) or name (`Acme Hosting`, any case). Without it the cheapest offer from any provider is ordered. A name that more than one provider uses fails; give the ID or slug then. |
+| `provider_id` | none | Only consider offers from the provider with this ID. Takes precedence over `hosting_provider`. |
 | `plan_id`, `region_id` | none | An exact plan and region, instead of `plan`, `country` and `city`. |
 | `distro` | from the platform name | NodeRings distro, such as `ubuntu_24_04`. |
 | `server_name` | `kitchen-<instance>-<random>` | Hostname of the server (at most 63 characters). |
