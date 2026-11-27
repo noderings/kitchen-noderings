@@ -8,6 +8,6 @@
 module Kitchen
   module Driver
     # Version string for the NodeRings Test Kitchen driver.
-    NODERINGS_VERSION = "0.2.0" # x-release-please-version
+    NODERINGS_VERSION = "0.2.1" # x-release-please-version
   end
 end

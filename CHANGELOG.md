@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file. The format foll
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.2.1](https://github.com/noderings/kitchen-noderings/compare/v0.2.0...v0.2.1) (2026-11-27)
+
+
+### Documentation
+
+* link the official Go SDK in the README ([#8](https://github.com/noderings/kitchen-noderings/issues/8)) ([ac9d626](https://github.com/noderings/kitchen-noderings/commit/ac9d6266c23cda60a2be19dadd4eccf8a95e2f93))
+
 ## [0.2.0](https://github.com/noderings/kitchen-noderings/compare/v0.1.0...v0.2.0) (2026-11-26)
 
 
